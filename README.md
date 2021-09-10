@@ -1,5 +1,7 @@
 # Jsclass
 
+dede
+
 ## Description
 
 Jsclass allows you to transform your JSON Schemas into full capable Ruby classes.
