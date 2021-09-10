@@ -19,6 +19,7 @@ Gem::Specification.new "jsclass", Jsclass::VERSION do |s|
   s.add_development_dependency("simplecov-json")
 
   s.add_runtime_dependency("json")
+  s.add_runtime_dependency("graphql")
   s.add_runtime_dependency("json-schema")
 
   s.required_ruby_version = ">= 2.5"
