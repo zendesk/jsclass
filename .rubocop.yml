@@ -1,0 +1,41 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+AllCops:
+  NewCops: enable
+
+# use double quotes for everything
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# This three settings change the rubocop default to use "#{ interpolation }",
+# %w[ a b ], and [ "a" ] rather than "#{interpolation}", %[w b] and ["a"].
+# Maybe it's me, but I definitely read the code better when there is some space in between
+# Also, it's specially funny because rubo by default allows the empty spaces in hashes
+# and procs... but not when interpolating... which is a bit weird IMHO
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: space
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
+
+# bumping this a bit, 10 sometimes is too little when there are case statements
+Metrics/MethodLength:
+  Max: 20
+
+# 80 is a bit from the 90s :D... we have wider screens, I think 100 is okish
+Layout/LineLength:
+  Max: 100
+
+# Do not apply block length metrics to specs
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/**/*.rb'
